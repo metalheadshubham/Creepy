@@ -3,111 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Memory Check</title>
+    <title>Creepy Story</title>
     <style>
         body {
             background-color: black;
             color: white;
+            font-family: 'Arial', sans-serif;
             text-align: center;
-            font-family: 'Courier New', monospace;
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
+            padding: 20px;
         }
-        #container {
-            width: 100%;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            position: relative;
+        h1 {
+            font-size: 40px;
+            color: red;
         }
-        video {
-            width: 80%;
-            max-width: 900px;
-            display: none;
+        p {
+            font-size: 18px;
+            max-width: 800px;
+            margin: auto;
+            line-height: 1.6;
         }
-        audio {
-            display: none;
-        }
-        #text {
-            font-size: 24px;
-            font-weight: bold;
-            opacity: 1;
-            transition: opacity 2s ease-in-out;
+        audio, video {
+            margin-top: 20px;
+            width: 90%;
+            max-width: 600px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
         }
     </style>
 </head>
 <body>
+    <h1>Do You Hear It?</h1>
+    
+    <p>
+        The whispers started at midnight. They were faint at first, like the rustling of leaves in an empty forest. 
+        But soon, they became voices—muttering, gasping, pleading. I tried to ignore them, thinking it was my imagination. 
+        But then the scratching began.
+    </p>
+    
+    <p>
+        Something was inside the walls.
+    </p>
 
-    <div id="container">
-        <div id="text">Memory Check...</div>
-        <video id="creepyVideo" controls>
-            <source src="Video" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-        <audio id="creepyAudio" loop>
-            <source src="Audio" type="audio/mp3">
-        </audio>
-    </div>
+    <p>
+        I pressed my ear against the cold plaster, my breath hitching. The scratching grew louder, more frantic. 
+        It wasn't a rat. It wasn't the pipes. It was something else. And then, I heard my name.
+    </p>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            let text = document.getElementById("text");
-            let video = document.getElementById("creepyVideo");
-            let audio = document.getElementById("creepyAudio");
+    <p>
+        "Come closer," it whispered.
+    </p>
 
-            setTimeout(() => {
-                text.style.opacity = "0";
-                setTimeout(() => {
-                    text.innerText = "Have you ever forgotten something... important?";
-                    text.style.opacity = "1";
-                }, 2000);
-            }, 3000);
+    <p>
+        My blood ran cold. I stumbled back, but my body refused to run. The lights flickered, and in that brief moment 
+        of darkness, I felt something behind me. Something breathing. 
+    </p>
 
-            setTimeout(() => {
-                text.style.opacity = "0";
-                setTimeout(() => {
-                    text.innerText = "No, not a lost key or a misplaced phone...";
-                    text.style.opacity = "1";
-                }, 2000);
-            }, 8000);
+    <p>
+        The TV screen turned on by itself. Static filled the room. And in the flickering light, I saw movement—shadowy, 
+        crawling figures on the walls. Their faces were wrong. Twisted. Hungry. The whispers turned into laughter.
+    </p>
 
-            setTimeout(() => {
-                text.style.opacity = "0";
-                setTimeout(() => {
-                    text.innerText = "But a person. A memory. A promise.";
-                    text.style.opacity = "1";
-                }, 2000);
-            }, 14000);
+    <p>
+        "Play the video," they urged.
+    </p>
 
-            setTimeout(() => {
-                text.style.opacity = "0";
-                setTimeout(() => {
-                    text.innerText = "They didn't forget you.";
-                    text.style.opacity = "1";
-                }, 2000);
-            }, 20000);
+    <p>
+        My hands shook as I reached for my phone. The file was already open. The play button was waiting.
+    </p>
 
-            setTimeout(() => {
-                text.style.opacity = "0";
-                setTimeout(() => {
-                    text.innerText = "And now they're back.";
-                    text.style.opacity = "1";
-                }, 2000);
-            }, 26000);
+    <video controls>
+        <source src="Video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
 
-            setTimeout(() => {
-                text.style.opacity = "0";
-                setTimeout(() => {
-                    video.style.display = "block";
-                    video.play();
-                    audio.play();
-                }, 3000);
-            }, 32000);
-        });
-    </script>
+    <p>
+        And then, the final whisper came. Closer than before. Right against my ear.
+    </p>
+
+    <p>
+        "Listen..."
+    </p>
+
+    <audio controls>
+        <source src="Audio.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <p>
+        The screen went black. The whispers stopped. And then, in the silence, something else began to breathe.
+    </p>
 
 </body>
 </html>
