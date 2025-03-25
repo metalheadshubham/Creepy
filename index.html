@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creepy Website</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+        body {
+            background: black;
+            color: white;
+            font-family: 'VT323', monospace;
+            text-align: center;
+            padding-top: 100px;
+            overflow: hidden;
+        }
+
+        video {
+            width: 80%;
+            height: auto;
+            display: block;
+            margin: auto;
+        }
+
+        #news {
+            display: none;
+            font-size: 24px;
+            padding: 20px;
+            background: black;
+            color: red;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 2s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <video id="creepyVideo" autoplay muted>
+        <source src="video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <div id="news">
+        <p>🚨 Breaking News 🚨</p>
+        <p>30 Hackers Found Dead in Their Homes</p>
+        <p>Their Bodies Were Mutilated Beyond Recognition...</p>
+        <p>No Signs of Forced Entry... No Digital Footprints Left Behind...</p>
+        <p>Their Screens Displayed One Final Message Before They Died:</p>
+        <p style="color: white; font-size: 32px;">"I HAVE FOUND YOU."</p>
+        <p>Who—or What—Did This?</p>
+        <p>Authorities Are Speechless...</p>
+        <p>The Only Witnesses Are Their Screens...</p>
+    </div>
+
+    <audio id="creepyMusic" loop>
+        <source src="audio.mp3" type="audio/mp3">
+    </audio>
+
+    <script>
+        document.addEventListener("click", function() {
+            let music = document.getElementById("creepyMusic");
+            if (music.paused) {
+                music.volume = 0.1; // Very dim background music
+                music.play();
+            }
+        });
+
+        let video = document.getElementById("creepyVideo");
+        let news = document.getElementById("news");
+
+        video.addEventListener("timeupdate", function() {
+            if (video.currentTime > video.duration / 2) {
+                video.pause();
+                news.style.display = "block";
+                setTimeout(() => { news.style.opacity = 1; }, 500);
+                setTimeout(() => {
+                    news.style.opacity = 0;
+                    setTimeout(() => {
+                        news.style.display = "none";
+                        video.play();
+                    }, 2000);
+                }, 8000);
+            }
+        });
+    </script>
+</body>
+</html>
