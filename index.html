@@ -3,64 +3,109 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Creepy Video</title>
+    <title>Memory Check</title>
     <style>
         body {
-            margin: 0;
             background-color: black;
             color: white;
-            font-family: Arial, sans-serif;
             text-align: center;
+            font-family: 'Courier New', monospace;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
         }
-        #news {
-            display: none;
-            font-size: 20px;
-            padding: 20px;
-            background-color: rgba(0, 0, 0, 0.8);
+        #container {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            position: relative;
         }
         video {
-            width: 100vw; 
-            height: 100vh;
+            width: 80%;
+            max-width: 900px;
+            display: none;
+        }
+        audio {
+            display: none;
+        }
+        #text {
+            font-size: 24px;
+            font-weight: bold;
+            opacity: 1;
+            transition: opacity 2s ease-in-out;
         }
     </style>
 </head>
 <body>
 
-    <video id="creepyVideo" autoplay>
-        <source src="Video.mp4.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
-
-    <audio id="backgroundAudio" loop>
-        <source src="audio.mp3.mp3" type="audio/mp3">
-    </audio>
-
-    <div id="news">
-        <h1>BREAKING NEWS</h1>
-        <p>Authorities are in shock as 30 hackers were found dead in their homes overnight. The victims, known for their cyber activities, were found in eerily similar conditions, their screens still displaying lines of code. Was it an accident? Or is something lurking in the digital shadows?</p>
+    <div id="container">
+        <div id="text">Memory Check...</div>
+        <video id="creepyVideo" controls>
+            <source src="Video" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <audio id="creepyAudio" loop>
+            <source src="Audio" type="audio/mp3">
+        </audio>
     </div>
 
     <script>
-        const video = document.getElementById("creepyVideo");
-        const audio = document.getElementById("backgroundAudio");
-        const news = document.getElementById("news");
+        document.addEventListener("DOMContentLoaded", function() {
+            let text = document.getElementById("text");
+            let video = document.getElementById("creepyVideo");
+            let audio = document.getElementById("creepyAudio");
 
-        // Play background audio at a low volume
-        audio.volume = 0.2;
-        audio.play();
+            setTimeout(() => {
+                text.style.opacity = "0";
+                setTimeout(() => {
+                    text.innerText = "Have you ever forgotten something... important?";
+                    text.style.opacity = "1";
+                }, 2000);
+            }, 3000);
 
-        video.addEventListener("timeupdate", function() {
-            if (video.currentTime > video.duration / 2) { // Pause at halfway
-                video.pause();
-                audio.pause();
-                news.style.display = "block"; // Show news story
+            setTimeout(() => {
+                text.style.opacity = "0";
+                setTimeout(() => {
+                    text.innerText = "No, not a lost key or a misplaced phone...";
+                    text.style.opacity = "1";
+                }, 2000);
+            }, 8000);
 
-                setTimeout(() => { // Resume after 10 seconds
-                    news.style.display = "none";
+            setTimeout(() => {
+                text.style.opacity = "0";
+                setTimeout(() => {
+                    text.innerText = "But a person. A memory. A promise.";
+                    text.style.opacity = "1";
+                }, 2000);
+            }, 14000);
+
+            setTimeout(() => {
+                text.style.opacity = "0";
+                setTimeout(() => {
+                    text.innerText = "They didn't forget you.";
+                    text.style.opacity = "1";
+                }, 2000);
+            }, 20000);
+
+            setTimeout(() => {
+                text.style.opacity = "0";
+                setTimeout(() => {
+                    text.innerText = "And now they're back.";
+                    text.style.opacity = "1";
+                }, 2000);
+            }, 26000);
+
+            setTimeout(() => {
+                text.style.opacity = "0";
+                setTimeout(() => {
+                    video.style.display = "block";
                     video.play();
                     audio.play();
-                }, 10000);
-            }
+                }, 3000);
+            }, 32000);
         });
     </script>
 
