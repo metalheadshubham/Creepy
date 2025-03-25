@@ -3,86 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Creepy Website</title>
+    <title>Creepy Video</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
-
         body {
-            background: black;
+            margin: 0;
+            background-color: black;
             color: white;
-            font-family: 'VT323', monospace;
+            font-family: Arial, sans-serif;
             text-align: center;
-            padding-top: 100px;
-            overflow: hidden;
         }
-
-        video {
-            width: 80%;
-            height: auto;
-            display: block;
-            margin: auto;
-        }
-
         #news {
             display: none;
-            font-size: 24px;
+            font-size: 20px;
             padding: 20px;
-            background: black;
-            color: red;
-            text-align: center;
-            opacity: 0;
-            transition: opacity 2s ease-in-out;
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        video {
+            width: 100vw;
+            height: 100vh;
         }
     </style>
 </head>
 <body>
-    <video id="creepyVideo" autoplay muted>
-        <source src="video.mp4" type="video/mp4">
+
+    <video id="creepyVideo" autoplay>
+        <source src="Video.mp4.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
 
-    <div id="news">
-        <p>🚨 Breaking News 🚨</p>
-        <p>30 Hackers Found Dead in Their Homes</p>
-        <p>Their Bodies Were Mutilated Beyond Recognition...</p>
-        <p>No Signs of Forced Entry... No Digital Footprints Left Behind...</p>
-        <p>Their Screens Displayed One Final Message Before They Died:</p>
-        <p style="color: white; font-size: 32px;">"I HAVE FOUND YOU."</p>
-        <p>Who—or What—Did This?</p>
-        <p>Authorities Are Speechless...</p>
-        <p>The Only Witnesses Are Their Screens...</p>
-    </div>
-
-    <audio id="creepyMusic" loop>
-        <source src="audio.mp3" type="audio/mp3">
+    <audio id="backgroundAudio" loop>
+        <source src="audio.mp3.mp3" type="audio/mp3">
     </audio>
 
-    <script>
-        document.addEventListener("click", function() {
-            let music = document.getElementById("creepyMusic");
-            if (music.paused) {
-                music.volume = 0.1; // Very dim background music
-                music.play();
-            }
-        });
+    <div id="news">
+        <h1>BREAKING NEWS</h1>
+        <p>Authorities are in shock as 30 hackers were found dead in their homes overnight. The victims, known for their cyber activities, were found in eerily similar conditions, their screens still displaying lines of code. Was it an accident? Or is something lurking in the digital shadows?</p>
+    </div>
 
-        let video = document.getElementById("creepyVideo");
-        let news = document.getElementById("news");
+    <script>
+        const video = document.getElementById("creepyVideo");
+        const audio = document.getElementById("backgroundAudio");
+        const news = document.getElementById("news");
+
+        // Play background audio at a low volume
+        audio.volume = 0.2;
+        audio.play();
 
         video.addEventListener("timeupdate", function() {
-            if (video.currentTime > video.duration / 2) {
+            if (video.currentTime > video.duration / 2) { // Pause at halfway
                 video.pause();
-                news.style.display = "block";
-                setTimeout(() => { news.style.opacity = 1; }, 500);
-                setTimeout(() => {
-                    news.style.opacity = 0;
-                    setTimeout(() => {
-                        news.style.display = "none";
-                        video.play();
-                    }, 2000);
-                }, 8000);
+                audio.pause();
+                news.style.display = "block"; // Show news story
+
+                setTimeout(() => { // Resume after 10 seconds
+                    news.style.display = "none";
+                    video.play();
+                    audio.play();
+                }, 10000);
             }
         });
     </script>
+
 </body>
 </html>
